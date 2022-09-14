@@ -1,0 +1,26 @@
+{
+  "name": "api_rest_knexjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderAlves77/api_rest_knexjs.git"
+  },
+  "keywords": [],
+  "author": "Alexander Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderAlves77/api_rest_knexjs/issues"
+  },
+  "homepage": "https://github.com/AlexanderAlves77/api_rest_knexjs#readme",
+  "dependencies": {
+    "dotenv": "16.0.2",
+    "express": "4.18.1",
+    "knex": "2.3.0",
+    "mysql2": "2.3.3"
+  }
+}
