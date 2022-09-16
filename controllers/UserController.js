@@ -1,4 +1,5 @@
 const User = require("../models/User")
+const PasswordToken = require("../models/PasswordToken")
 
 class UserController {
 
@@ -77,10 +78,38 @@ class UserController {
   async remove(req, res) {
     let id = req.params.id
     let result = await User.delete(id)
-    
+
     if (result.status) {
       res.status(200)
       res.send("TUDO OK!")
+    } else {
+      res.status(406)
+      res.send(result.err)
+    }
+  }
+
+  async recoverPassword(req, res) {
+    let email = req.body.email
+    let result = await PasswordToken.create(email)
+
+    if (result.status) {
+      res.status(200)
+      res.send(""+result.token)
+    } else {
+      res.status(406)
+      res.send(result.err)
+    }
+  }
+
+  async changePassword(req, res) {
+    let token = req.body.token 
+    let password = req.body.password 
+    let isTokenValid = await PasswordToken.validate(token)
+
+    if (isTokenValid.status) {
+      await User.changePassword(password, isTokenValid.token.user_id, isTokenValid.token.token)
+      res.status(200)
+      res.send("Senha aterada")
     } else {
       res.status(406)
       res.send(result.err)
