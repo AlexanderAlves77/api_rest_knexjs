@@ -3,8 +3,8 @@ const knex = require("knex")({
   connection: {
     host: "localhost",
     user: "root",
-    password: process.env.API_CONNECTION_PASSWORD || "rska2022",
-    database: process.env.API_CONNECTION_DATABASE || "apiusers"
+    password: process.env.API_CONNECTION_PASSWORD || "",
+    database: process.env.API_CONNECTION_DATABASE || ""
   }
 })
 
